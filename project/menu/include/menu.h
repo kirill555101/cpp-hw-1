@@ -1,0 +1,6 @@
+#ifndef PROJECT_MENU_INCLUDE_MENU_H_
+#define PROJECT_MENU_INCLUDE_MENU_H_
+
+int execute();
+
+#endif  // PROJECT_MENU_INCLUDE_MENU_H_
