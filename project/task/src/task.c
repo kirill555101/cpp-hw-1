@@ -30,17 +30,18 @@ size_t find_max_arithmetic_seq(int *arr, size_t len, int **start) {
   size_t max_seq_len = 0, curr_seq_len = MIN_ARITHMETIC_SEQ_LEN;
 
   while ((size_t)(curr_seq_start - arr) != len) {
-    if (is_arithmetic_seq(curr_seq_start, curr_seq_len) == 1) {
-      if (curr_seq_len > max_seq_len) {
-        max_seq_start = curr_seq_start;
-        max_seq_len = curr_seq_len;
-      }
-
-      ++curr_seq_len;
-    } else {
+    if (is_arithmetic_seq(curr_seq_start, curr_seq_len) != 1) {
       ++curr_seq_start;
       curr_seq_len = MIN_ARITHMETIC_SEQ_LEN;
+      continue;
     }
+
+    if (curr_seq_len > max_seq_len) {
+      max_seq_start = curr_seq_start;
+      max_seq_len = curr_seq_len;
+    }
+
+    ++curr_seq_len;
   }
 
   *start = max_seq_start;
