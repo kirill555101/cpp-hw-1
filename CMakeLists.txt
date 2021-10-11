@@ -17,7 +17,7 @@ target_include_directories(menu PUBLIC project/menu/include)
 target_link_libraries(menu task)
 
 # Make executable program
-add_executable(main.out project/main.c)
+add_executable(main.out project/cmd/src/main.c)
 target_include_directories(main.out PUBLIC project/menu/include)
 target_link_libraries(main.out menu)
 
