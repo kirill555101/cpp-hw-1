@@ -2,7 +2,7 @@
 
 #define MIN_ARITHMETIC_SEQ_LEN 3
 
-static int is_arithmetic_seq(int *arr, size_t len) {
+static int is_arithmetic_seq(const int *arr, size_t len) {
   if (arr == NULL || len == 0) {
     return 0;
   }
