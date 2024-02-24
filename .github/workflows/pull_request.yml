@@ -18,11 +18,9 @@ jobs:
 
       - name: Build
         run: |
-          mkdir build
-          cd build
+          mkdir build && cd build
           sudo apt-get install -y libgtest-dev
-          cmake ..
-          make
+          cmake .. && make
           cd ..
 
       - name: Archive build results
@@ -35,9 +33,12 @@ jobs:
         run: |
           sudo apt-get install lcov
           ./build/test.out
-          gcov build/CMakeFiles/test.out.dir/test/main.cpp.gcno
-          lcov --capture --directory build/CMakeFiles/ --output-file test.info
-          genhtml -o coverage-report/ test.info
+          mkdir coverage && cd coverage
+          gcov ../build/CMakeFiles/task.dir/project/task/src/task.c.gcno
+          cp -r ../build/CMakeFiles/task.dir/project/task/src/ .
+          cd ..
+          lcov --capture --directory coverage/ --output-file task.info
+          genhtml task.info --output-directory coverage-report/
 
       - name: Archive coverage test results
         uses: actions/upload-artifact@v2
