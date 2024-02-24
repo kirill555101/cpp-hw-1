@@ -4,7 +4,7 @@ extern "C" {
 #include "task.h"
 }
 
-TEST(TaskTest, HandleEmptyArray) {
+TEST(TASK_TEST, HANDLE_EMPTY_ARRAY) {
   const size_t CORRECT_RESULT_LEN = 0;
 
   int *start = NULL;
@@ -13,7 +13,7 @@ TEST(TaskTest, HandleEmptyArray) {
   EXPECT_EQ(res, CORRECT_RESULT_LEN);
 }
 
-TEST(TaskTest, HandleArrayWithSeq) {
+TEST(TASK_TEST, HANDLE_ARRAY_WITH_SEQ) {
   const size_t CORRECT_RESULT_LEN = 5;
 
   int arr[] = {6, 5, 1, 2, 3, 4, 5};
@@ -26,7 +26,7 @@ TEST(TaskTest, HandleArrayWithSeq) {
   EXPECT_EQ(start, arr + 2);
 }
 
-TEST(TaskTest, HandleArraySmallSeq) {
+TEST(TASK_TEST, HANDLE_ARRAY_WITH_SMALL_SEQ) {
   const size_t CORRECT_RESULT_LEN = 3;
 
   int arr[] = {1, 2, 3, 5};
@@ -39,7 +39,7 @@ TEST(TaskTest, HandleArraySmallSeq) {
   EXPECT_EQ(start, arr);
 }
 
-TEST(TaskTest, HandleArrayWithNoSeq) {
+TEST(TASK_TEST, HANDLE_ARRAY_WITH_NO_SEQ) {
   const size_t CORRECT_RESULT_LEN = 0;
 
   int arr[] = {1, 8, 3, 5, 2};
